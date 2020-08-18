@@ -1,0 +1,10 @@
+./build/**/*
+./data/**/*
+./dist/**/*
+.idea/**/*
+.code/**/*
+.vscode/**/*
+scripts/**/*
+dist/**/*
+build/**/*
+./wkmake.egg-info/*
