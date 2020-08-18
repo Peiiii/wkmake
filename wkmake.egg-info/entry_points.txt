@@ -1,3 +1,0 @@
-[console_scripts]
-wkmake = wkmake.clitools.cli:main
-
