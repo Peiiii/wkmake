@@ -7,4 +7,4 @@
 scripts/**/*
 dist/**/*
 build/**/*
-./wkmake.egg-info/**/*
+wkmake.egg-info/**/*
