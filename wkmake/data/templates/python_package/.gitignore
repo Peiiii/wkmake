@@ -4,5 +4,4 @@
 scripts/**/*
 dist/**/*
 build/**/*
-test/**/*
-wkmake.egg-info/**/*
+{{pkg_name}}.egg-info/**/*

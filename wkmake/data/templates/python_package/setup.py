@@ -44,29 +44,25 @@ version = get_version()
 print("version:", version)
 setuptools.setup(
     executable=True,
-    name="wkmake",  # Replace with your own username
+    name="{{pkg_name}}",  # Replace with your own username
     version=version,
-    author="Wang Pei",
-    author_email="1535376447@qq.com",
-    description="Some simple tools for building python projects.",
+    author="{{author}}",
+    author_email="{{author_email}}",
+    description="{{pkg_desc or ''}}",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/Peiiii/wk-make",
+    url="{{url or ''}}",
     packages=setuptools.find_packages(),
-    package_dir={'wkmake': 'wkmake'},
-    install_requires=[
-        'jinja2',
-        'fire',
-        'wpkit2'
-    ],
+    package_dir={'{{pkg_name}}': '{{pkg_name}}'},
+    install_requires={{install_requires or '[]'}},
     entry_points={
         'console_scripts': [
-            'wkmake = wkmake.clitools.cli:main',
+            '{{pkg_name}} = {{pkg_name}}.clitools.cli:main',
         ]
     },
     include_package_data=True,
     package_data={
-        'wkmake': [
+        '{{pkg_name}}': [
             'data/*', 'data/*/*', 'data/*/*/*', 'data/*/*/*/*', 'data/*/*/*/*/*', 'data/*/*/*/*/*/*',
             'data/*/*/*/*/*/*/*',
         ]
