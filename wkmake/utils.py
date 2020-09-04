@@ -47,3 +47,7 @@ def load_simple_config(fp,line_split='\n',pair_split='=',encoding="utf-8",commen
             value=value.strip()
             dic[key]=value
         return dic
+
+def export(src,dst):
+    import shutil
+    shutil.copytree(src,dst,)

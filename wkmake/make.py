@@ -38,7 +38,7 @@ def make_file(src_path,dst_path,config={},overwrite=False):
         else:
             os.remove(dst_path)
     print('reading %s' % (src_path))
-    with open(src_path, 'r') as f:
+    with open(src_path, 'r',encoding='utf-8') as f:
         s=f.read()
         template = Environment().from_string(s)
         s = template.render(**config)
@@ -68,6 +68,8 @@ def make_recursively(src_path,dst_path,config={},overwrite=False):
         make_file(src_path,dst_path,config,overwrite=overwrite)
         print('Render template from %s to %s.' % (src_path,dst_path))
     elif os.path.isdir(src_path):
+        if os.path.basename(src_path)=='__pycache__':
+            return
         if os.path.exists(os.path.join(src_path,WKMAKE_FILENAME)):
             cfg=load_json(os.path.join(src_path,WKMAKE_FILENAME))
             config=check_config(cfg,config)

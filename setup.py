@@ -40,6 +40,12 @@ def get_version():
     return version
 
 
+packages=setuptools.find_packages()
+except_packages=['local']
+for pkg in except_packages:
+    if pkg in packages:
+        packages.remove(pkg)
+print('packages:', packages)
 version = get_version()
 print("version:", version)
 setuptools.setup(
@@ -52,7 +58,7 @@ setuptools.setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/Peiiii/wk-make",
-    packages=setuptools.find_packages(),
+    packages=packages,
     package_dir={'wkmake': 'wkmake'},
     install_requires=[
         'jinja2',
@@ -69,6 +75,8 @@ setuptools.setup(
         'wkmake': [
             'data/*', 'data/*/*', 'data/*/*/*', 'data/*/*/*/*', 'data/*/*/*/*/*', 'data/*/*/*/*/*/*',
             'data/*/*/*/*/*/*/*',
+            'data/.*', 'data/*/.*', 'data/*/*/.*', 'data/*/*/*/.*', 'data/*/*/*/*/.*', 'data/*/*/*/*/*/.*',
+            'data/*/*/*/*/*/*/.*',
         ]
     },
     classifiers=[

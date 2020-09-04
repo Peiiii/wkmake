@@ -1,8 +1,10 @@
 import os
 os.environ['ANSI_COLORS_DISABLED']="1"
+import shutil
 import fire
 from wkmake.make import make_from_files
-from wkmake.pkg_info import pkg_templates_dir
+from wkmake.pkg_info import pkg_templates_dir,PkgData
+from wkmake.utils import export
 class CLI:
     def hi(cls):
         print('Hi, I am wkmake.'.center(50, '*'))
@@ -14,6 +16,10 @@ class CLI:
             else:
                 src=src2
         make_from_files(src,dst,config_files=[cfg],overwrite=overwrite)
+    def export(self,demo=True,dst=None):
+        dst=dst or './export-output'
+        if demo:
+            export(PkgData.Paths.example,dst)
 
 def main():
     fire.Fire(CLI())
