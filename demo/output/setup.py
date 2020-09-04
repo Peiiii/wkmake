@@ -23,9 +23,6 @@ def get_version():
 
     if not os.path.exists(vf):
         raise Exception('version.txt not found or  is invalid')
-    # f=open(vf,'w')
-    # f.write(str(249))
-    # f.close()
     with open(vf, 'r') as f:
         numbers = f.read().strip()
         if numbers == '':

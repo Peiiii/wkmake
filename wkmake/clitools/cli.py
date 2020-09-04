@@ -6,7 +6,7 @@ from wkmake.pkg_info import pkg_templates_dir
 class CLI:
     def hi(cls):
         print('Hi, I am wkmake.'.center(50, '*'))
-    def make(self,src,dst,cfg,overwrite=False):
+    def make(self,cfg='wkmake.json',src='python_package',dst='./wkmake-output',overwrite=False):
         if not os.path.exists(src):
             src2=os.path.join(pkg_templates_dir,src)
             if not os.path.exists(src2):
