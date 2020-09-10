@@ -39,6 +39,9 @@ def get_version():
         f.write(version)
     return version
 
+packages=setuptools.find_packages(exclude=['local','local.*'])
+
+print('packages:', packages)
 
 version = get_version()
 print("version:", version)
@@ -52,7 +55,7 @@ setuptools.setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="{{url or ''}}",
-    packages=setuptools.find_packages(),
+    packages=packages,
     package_dir={'{{pkg_name}}': '{{pkg_name}}'},
     install_requires={{install_requires or '[]'}},
     entry_points={
