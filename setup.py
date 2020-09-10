@@ -39,12 +39,8 @@ def get_version():
         f.write(version)
     return version
 
+packages=setuptools.find_packages(exclude=['local','local.*'])
 
-packages=setuptools.find_packages()
-except_packages=['local']
-for pkg in except_packages:
-    if pkg in packages:
-        packages.remove(pkg)
 print('packages:', packages)
 version = get_version()
 print("version:", version)
